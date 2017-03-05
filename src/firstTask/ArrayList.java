@@ -3,7 +3,7 @@ package firstTask;
 /**
  * Created by Алексей on 04.03.2017.
  */
-public class ArrayList {
+public class ArrayList<T> {
     private final int INIT_SIZE = 8;
     private int last_item = 0;
     private int CUT_RATE = 2;
