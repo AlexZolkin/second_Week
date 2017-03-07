@@ -1,7 +1,5 @@
 package thirdTask;
 
-import java.util.Iterator;
-
 /**
  * Created by Алексей on 07.03.2017.
  */
@@ -30,7 +28,7 @@ public class PeriodicPrint extends Book{
     * */
     @Override
     public void add_Book(String name, String author, int year){
-        books.add(new PeriodicPrint(this.name, this.author, this.year));
+        books.add(new PeriodicPrint(name, author, year));
     }
     /*
     * Edition Interface realisation
@@ -44,15 +42,16 @@ public class PeriodicPrint extends Book{
     * Edition Interface realisation
     * deleting all books, created in the same year
     * */
-    @Override
+    /*@Override
     public  void delete_All_Books(int year){
         Iterator<Book> iter = books.iterator();
 
         while (iter.hasNext()) {
-            if(iter.next().book_Type == book_Type && iter.next().year == year)
-                books.remove(iter.next());
+            Book temp = iter.next();
+            if(temp.book_Type == book_Type && temp.year == year)
+                temp.delete_Book();
         }
-    }
+    }*/
     /*
     * Edition Interface realisation
     * getter for current book
@@ -63,7 +62,7 @@ public class PeriodicPrint extends Book{
     {
         return this.name + " - " + this.author;
     }
-    final String info(){
+    public final String info(){
         return this.name + " - " + this.author;
     }
 }

@@ -1,7 +1,5 @@
 package thirdTask;
 
-import java.util.Iterator;
-
 /**
  * Created by Алексей on 02.03.2017.
  */
@@ -17,22 +15,23 @@ public class Encyclopedia extends Book {
     }
     @Override
     public void add_Book(String name, String author, int year){
-        books.add(new Encyclopedia(this.name, this.author, this.year));
+        books.add(new Encyclopedia(name, author, year));
     }
 
     @Override
     public void delete_Book(){
         books.remove(this);
     }
-    @Override
+    /*@Override
     public  void delete_All_Books(int year){
         Iterator<Book> iter = books.iterator();
 
         while (iter.hasNext()) {
-            if(iter.next().book_Type == book_Type && iter.next().year == year)
-                books.remove(iter.next());
+            Book temp = iter.next();
+            if(temp.book_Type == book_Type && temp.year == year)
+                temp.delete_Book();
         }
-    }
+    }*/
     //@Override
     public String get_Book()
     {
