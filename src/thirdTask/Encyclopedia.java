@@ -33,7 +33,7 @@ public class Encyclopedia extends Book {
                 books.remove(iter.next());
         }
     }
-    @Override
+    //@Override
     public String get_Book()
     {
         return this.name + " - " + this.author;

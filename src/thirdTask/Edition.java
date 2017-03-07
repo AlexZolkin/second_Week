@@ -19,5 +19,5 @@ public interface Edition {
     void delete_Book();
     void delete_All_Books(int year);
 
-    String get_Book();
+    //String get_Book();
 }

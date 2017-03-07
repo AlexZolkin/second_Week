@@ -11,5 +11,6 @@ package thirdTask;
 public enum Books_Type {
     Encyclopedia,
     Catalog,
+    PeriodicPrint,
     Undefined,
 }

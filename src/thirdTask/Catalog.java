@@ -1,6 +1,5 @@
 package thirdTask;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -59,9 +58,8 @@ public class Catalog extends Book {
     * getter for current book
     * returns one formatted string with name and author
     * */
-    @Override
-    public String get_Book()
-    {
+    //@Override
+    public String get_Book() {
         return this.name + " - " + this.author;
     }
 }
