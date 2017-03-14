@@ -1,5 +1,4 @@
 package thirdTask;
-
 /**
  * Created by Алексей on 02.03.2017.
  */
@@ -8,9 +7,9 @@ package thirdTask;
 * in the task, there are two types: Catalog and Encyclopedia
 * Undefined is for constructor in Book, for initialization with unsuitable parameter
 * */
-public enum Books_Type {
+public enum BooksType {
     Encyclopedia,
     Catalog,
-    PeriodicPrint,
     Undefined,
+    PeriodicPrint,
 }

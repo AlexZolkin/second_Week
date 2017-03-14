@@ -11,14 +11,14 @@ public class PeriodicPrint extends Book{
     * all books created with this constructor
     * */
     public PeriodicPrint(String name, String author, int year){
-        super(name, author, year, Books_Type.PeriodicPrint);
+        super(name, author, year, BooksType.PeriodicPrint);
     }
     /*
     * Edition Interface realisation
     * adding current book to a global collection
     * */
     @Override
-    public void add_Book(){
+    public void addBook(){
         books.add(this);
     }
     /*
@@ -27,7 +27,7 @@ public class PeriodicPrint extends Book{
     * and adding it to a global collection
     * */
     @Override
-    public void add_Book(String name, String author, int year){
+    public void addBook(String name, String author, int year){
         books.add(new PeriodicPrint(name, author, year));
     }
     /*
@@ -35,7 +35,7 @@ public class PeriodicPrint extends Book{
     * deleting current book from global collection
     * */
     @Override
-    public void delete_Book(){
+    public void deleteBook(){
         books.remove(this);
     }
     /*
@@ -43,13 +43,13 @@ public class PeriodicPrint extends Book{
     * deleting all books, created in the same year
     * */
     /*@Override
-    public  void delete_All_Books(int year){
+    public  void deleteAllBooks(int year){
         Iterator<Book> iter = books.iterator();
 
         while (iter.hasNext()) {
             Book temp = iter.next();
-            if(temp.book_Type == book_Type && temp.year == year)
-                temp.delete_Book();
+            if(temp.bookType == bookType && temp.year == year)
+                temp.deleteBook();
         }
     }*/
     /*
@@ -58,7 +58,7 @@ public class PeriodicPrint extends Book{
     * returns one formatted string with name and author
     * */
     //@Override
-    public String get_Book()
+    public String getBook()
     {
         return this.name + " - " + this.author;
     }
