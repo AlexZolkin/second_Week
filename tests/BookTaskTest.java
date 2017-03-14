@@ -32,11 +32,7 @@ public class BookTaskTest {
         books.get(1).delete_Book();
         Assert.assertEquals("PeriodicPrint",((PeriodicPrint)books.get(1)).info().split(" ")[0]);
     }
-    /*@Test
-    public void testDeleteAllBooks(){
-        books.get(0).delete_All_Books(1950);
-        Assert.assertEquals("PeriodicPrint",((PeriodicPrint)books.get(1)).info().split(" ")[0]);
-    }*/
+
     @Test
     public void testAddBook(){
         //new Catalog("Const 1","Const 1",1).add_Book();
