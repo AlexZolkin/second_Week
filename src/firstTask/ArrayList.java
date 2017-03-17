@@ -3,7 +3,7 @@ package firstTask;
 /**
  * Created by Алексей on 04.03.2017.
  */
-public class ArrayList<T> {
+public class ArrayList<T> implements IArrayList<T>{
     private final int INIT_SIZE = 8;
     private int lastItem = 0;
     private int CUT_RATE = 2;
@@ -11,7 +11,8 @@ public class ArrayList<T> {
     /*
     * adding new item to the end of the array
     * */
-    public void add(T item){
+    @Override
+    public void add(T item) throws IndexOutOfBoundsException{
         add(lastItem, item);
     }
     /*
@@ -20,9 +21,10 @@ public class ArrayList<T> {
     * lastItem index increases
     * array doubles it's length, if end reached
     * */
-    public void add(int index,T item){
+    @Override
+    public void add(int index,T item) throws IndexOutOfBoundsException{
         if(index > lastItem)
-            return;
+            throw new IndexOutOfBoundsException("Index is out of list bounds");
         if(lastItem == array.length - 1)
             resize(array.length * 2);
         for(int i = lastItem - 1;i>index;i--){
@@ -35,13 +37,17 @@ public class ArrayList<T> {
     * getter
     * returns element of array with index given
     * */
-    public T get(int index){
+    @Override
+    public T get(int index) throws IndexOutOfBoundsException{
+        if(index >= lastItem)
+            throw new IndexOutOfBoundsException("Index is out of list bounds");
         return (T)array[index];
     }
     /*
     * returns lastItem + 1,
     * cause lastItem is index, so it counts from 0
     * */
+    @Override
     public int size(){
         return lastItem;
     }
@@ -49,6 +55,7 @@ public class ArrayList<T> {
     * clears collection
     * simply crates new array and replace an old one with it
     * */
+    @Override
     public void clear(){
         array = new Object[INIT_SIZE];
     }
@@ -56,7 +63,10 @@ public class ArrayList<T> {
     * delete object in given position in array
     * without comparing check
     * */
-    public  void remove(int index){
+    @Override
+    public  void remove(int index) throws IndexOutOfBoundsException{
+        if(index >= size())
+            throw new IndexOutOfBoundsException("Index is out of list bounds");
         remove(index,(T)array[index]);
     }
     /*
@@ -65,9 +75,10 @@ public class ArrayList<T> {
     * deletes array item, if they are equal
     * left shift is also performed
     * */
-    public void remove(int index, T item){
-        if(index > lastItem)
-            return;
+    @Override
+    public void remove(int index, T item) throws IndexOutOfBoundsException{
+        if(index >= lastItem)
+            throw new IndexOutOfBoundsException("Index is out of list bounds");
         if(equals((T)array[index],item)){
             for(int i=index;i<lastItem;i++){
                 array[i] = array[i+1];
@@ -81,15 +92,17 @@ public class ArrayList<T> {
     /*
     * simply replaces needed element of an array with given one
     * */
-    public void set(int index, T item){
-        if(index > lastItem)
-            return;
+    @Override
+    public void set(int index, T item) throws IndexOutOfBoundsException{
+        if(index >= lastItem)
+            throw new IndexOutOfBoundsException("Index is out of list bounds");
         array[index] = item;
     }
     /*
     * checks
     * doe's an array contains item given
     * */
+    @Override
     public boolean contains(T item){
         for(int i=0;i<lastItem;i++){
             if(equals((T)array[i],item))
@@ -112,10 +125,10 @@ public class ArrayList<T> {
     * address,null,class,hashcode matching test performed
     * */
     private boolean equals(T item1, T item2){
-        if(item1 == item2)
-            return true;
         if(item1 == null || item2 == null)
             return false;
+        if(item1 == item2)
+            return true;
         if(item1.getClass() != item2.getClass())
             return false;
         if(item1.hashCode() != item2.hashCode())
