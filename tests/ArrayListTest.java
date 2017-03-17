@@ -42,4 +42,25 @@ public class ArrayListTest {
         Assert.assertEquals(true,list.contains(15));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void addEx(){
+        list.add(list.size() + 2, 12);
+    }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getEx(){
+        list.get(list.size());
+    }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void removeEx(){
+        list.remove(list.size());
+    }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void removeEx2(){
+        list.remove(list.size(), 11);
+    }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void setEx(){
+        list.set(list.size(), 11);
+    }
+
 }

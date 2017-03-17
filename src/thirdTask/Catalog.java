@@ -27,7 +27,7 @@ public class Catalog extends Book {
     * */
     @Override
     public void addBook(String name, String author, int year){
-        books.add(new Catalog(this.name, this.author, this.year));
+        books.add(new Catalog(name, author, year));
     }
     /*
     * Edition Interface realisation

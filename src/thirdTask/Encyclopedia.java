@@ -28,7 +28,7 @@ public class Encyclopedia extends Book {
     * */
     @Override
     public void addBook(String name, String author, int year){
-        books.add(new Encyclopedia(this.name, this.author, this.year));
+        books.add(new Encyclopedia(name, author, year));
     }
 
     /*
